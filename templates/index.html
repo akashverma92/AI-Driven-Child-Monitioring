@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Predict User Behavior</title>
+</head>
+<body>
+    <h2>Enter User Behavior Data</h2>
+    <form action="/predict" method="post">
+        Device Model: <input type="text" name="device_model" required><br><br>
+        OS: <input type="text" name="os" required><br><br>
+        App Usage Time (min/day): <input type="number" name="app_usage_time" step="0.1" required><br><br>
+        Screen On Time (hours/day): <input type="number" name="screen_on_time" step="0.1" required><br><br>
+        Battery Drain (mAh/day): <input type="number" name="battery_drain" step="0.1" required><br><br>
+        Number of Apps Installed: <input type="number" name="num_apps_installed" required><br><br>
+        Data Usage (MB/day): <input type="number" name="data_usage" step="0.1" required><br><br>
+        Age: <input type="number" name="age" required><br><br>
+        Gender: <input type="text" name="gender" required><br><br>
+        <button type="submit">Predict</button>
+    </form>
+    
+    {% if prediction_text %}
+    <h3>Prediction: {{ prediction_text }}</h3>
+    {% endif %}
+</body>
+</html>
